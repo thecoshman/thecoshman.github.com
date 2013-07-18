@@ -2,3 +2,51 @@
 @import url(pygment.css);
 @import url(slate.css);
 
+#header_wrap {
+  background: -moz-linear-gradient(top, #414141, #212121);
+  background: -webkit-linear-gradient(top, #414141, #212121);
+  background: -ms-linear-gradient(top, #414141, #212121);
+  background: -o-linear-gradient(top, #414141, #212121);
+  background: linear-gradient(top, #414141, #212121);
+}
+
+#footer_wrap {
+  background: -moz-linear-gradient(bottom, #414141, #212121);
+  background: -webkit-linear-gradient(bottom, #414141, #212121);
+  background: -ms-linear-gradient(bottom, #414141, #212121);
+  background: -o-linear-gradient(bottom, #414141, #212121);
+  background: linear-gradient(bottom, #414141, #212121);
+}
+
+body {
+	background: #414141;
+}
+
+#project_title a {
+  color: #f0f0f0;
+  text-shadow: 3px 2px 5px black;
+}
+
+#main_content a:hover {
+  text-shadow: none;
+}
+
+footer a:hover {
+  text-shadow: none;
+}
+
+.inner{
+	max-width: 1000px;
+}
+
+#header_wrap .inner{
+	max-width: 640px;
+}
+
+#footer_wrap .inner{
+	max-width: 640px;
+}
+
+h4, h5, h6 {
+margin-left: 0.5em;
+}
