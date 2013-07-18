@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
+{% include metadata.html %}
     <title>thecoshman - {{ page.title }}</title>
   </head>
   <body>
+{% include header.html %}
     <div id="main_content_wrap" class="outer">
       <article id="main_content" class="inner">
-        {{ content }}
+{{ content }}
       </article>
     </div>
+{% include footer.html %}
   </body>
 </html>
