@@ -35,7 +35,7 @@ class foo{
 {% endhighlight %}
 
 {% highlight cpp linenos %}
-#include <string>
+#include <string> // a very long line that will hopefully wrap at some stage though I have no idea how long it will take to get this line to wrap, hopefully I can get It wrap a few times maybe
 #include "magic.hpp"
 #ifdef sample
 #endif
@@ -43,4 +43,7 @@ template<typename T>
 class foo{
 	T things;
 }
+
+//was that an empty line?
+foo myFoo;
 {% endhighlight %}
