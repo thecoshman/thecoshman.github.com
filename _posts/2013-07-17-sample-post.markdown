@@ -30,6 +30,17 @@ Indeed, standing at my chamber door.
 #endif
 template<typename T>
 class foo{
+        T things;
+}
+{% endhighlight %}
+
+{% highlight cpp linenos %}
+#include <string>
+#include "magic.hpp"
+#ifdef sample
+#endif
+template<typename T>
+class foo{
 	T things;
 }
 {% endhighlight %}
