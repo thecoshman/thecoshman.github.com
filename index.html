@@ -4,9 +4,26 @@ title: Home
 ---
 
 <section>
-  <p> 
-  	My home page
-  </p>
+  <h1>REST</h1>
+
+  <p>That simple word has cost me a lot of time trying to work out exactly what it means. 
+I want to share my ramblinds in a series of articles.
+Hopwfully they will be usefull to others. 
+At some stage soon I will sort out a comment system, as I would love to get feed back from others</p>
+
+  <ul>
+    {% for post in site.categories.rest %}
+      <li>
+        <a hreaf="{{ post.url }}">{{ post.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+<p>(hint: no articles live yet)</p>
+</section>
+<hr />
+
+<section>
+  <p>My home page</p>
   
   <ul>
     {% for post in site.posts %}
