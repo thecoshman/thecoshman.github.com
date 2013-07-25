@@ -3,8 +3,8 @@
 @import url(slate.css);
 
 html {
-     overflow-y: -moz-scrollbars-vertical;
-     overflow-y: scroll;
+  overflow-y: -moz-scrollbars-vertical;
+  overflow-y: scroll;
 }
 
 #header_wrap {
@@ -60,6 +60,7 @@ h4, h5, h6 {
   color: #414141;
   border-right: #414141 solid 1px;
   padding: 0.25em 0.25em 0.25em 0.5em;
+  margin-left: -5em;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -71,6 +72,14 @@ h4, h5, h6 {
   padding-top: 0.5em;
 }
 
-.lineno:flast-of-type {
-  passing-bottom: 0.5em;
+.lineno:last-of-type {
+  padding-bottom: 0.5em;
+}
+
+pre {
+  padding-left: 5em;
+}
+
+span {
+  white-space: pre-wrap;
 }

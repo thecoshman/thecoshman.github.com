@@ -41,7 +41,7 @@ class foo{
 #endif
 template<typename T>
 class foo{
-	T things;
+    T things;
 }
 
 //was that an empty line?
