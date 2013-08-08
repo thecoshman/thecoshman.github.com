@@ -27,29 +27,38 @@ body {
   background: #414141;
 }
 
-#project_title a {
-  color: #f0f0f0;
-  text-shadow: 3px 2px 5px black;
+a:hover {
+  text-shadow: none;
+}
+
+#footer_wrap a:hover {
+  text-shadow: none;
 }
 
 #main_content a:hover {
   text-shadow: none;
 }
 
-footer a:hover {
-  text-shadow: none;
+#project_title a {
+  color: #f0f0f0;
+  text-shadow: 3px 2px 5px black;
+}
+
+#main_content {
+  padding-top: 25px;
+  padding-bottom: 35px;
 }
 
 .inner{
   max-width: 1000px;
 }
 
-#header_wrap .inner{
-  max-width: 640px;
+#footer_wrap .inner{
+  padding: 8px 10px;
 }
 
-#footer_wrap .inner{
-  max-width: 640px;
+#header_wrap .inner {
+padding: 30px 10px 10px 10px;
 }
 
 h4, h5, h6 {
@@ -80,3 +89,8 @@ h4, h5, h6 {
   white-space: pre-wrap;
 }
 
+span.date.meta {
+  font-size: 0.9em;
+  font-family: monospace;
+  color: #707070;
+}

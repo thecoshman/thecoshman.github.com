@@ -3,6 +3,7 @@ layout: default
 categories: rest
 published: false
 title: What REST Is Not
+is_post: true
 ---
 
 ## What REST Is Not

@@ -1,5 +1,13 @@
     <div id="footer_wrap" class="outer">
       <footer class="inner">
-        <p class="copyright">Maintained by <a href="https://github.com/thecoshman">thecoshman</a></p>
+      	{% if page.is_post %}
+        <p class="post_date">
+          First posted {{ page.date | date_to_long_string }}.
+          {% if page.last_edit %}
+            Last edited {{ page.last_edit }}.
+          {% endif %}
+        </p>
+        {% endif %}
+        <p class="copyright">By <a href="https://github.com/thecoshman">thecoshman</a></p>
       </footer>
     </div>

@@ -3,35 +3,45 @@ layout: default
 title: Home
 ---
 
-<section>
-  <h1>REST</h1>
+<section id="about">
 
-  <p>That simple word has cost me a lot of time trying to work out exactly what it means. 
-I want to share my ramblinds in a series of articles.
-Hopwfully they will be usefull to others. 
-At some stage soon I will sort out a comment system, as I would love to get feed back from others</p>
+  <h2>Hey!</h2>
+  <p>Greetings!
+This is the site of my fine self, thecoshman.
+It is a personal site, where I can share my opinion with those who care to here it.
+Overtime I'll write series of articles about various things I wish to write about.
+By profession, I am Java developer, by enjoyment, I have nothing to do with Java.
+I do various things for fun, but I'll refrain from yabbering on about benign details of my life.</p>
 
+  <p>thecoshman is me, I am thecoshman (and yes, it is all lower case all the time).
+I use this alias all over the shop, <a href="https://twitter.com/thecoshman">twitter</a> being a fine example.
+That's probably the best way to contact me if you feel such a compulsion.</p>
+
+  <p>For those who care about such details, I have this site hosted via <a href="http://pages.github.com/">github pages</a>.
+It uses a swanky system called <a href="http://jekyllrb.com/">Jekyll</a>, it takes <a href="http://daringfireball.net/projects/markdown/">Markdown</a> and converts it into a static HTML site they host.
+I might make a more detailed post about this at some stage, though there really isn't much to it.<p>
+  <ul>
+    {% for post in site.categories.other %}
+      <li>
+        <span class="date meta">{{ post.date | date_to_string }}</span> : 
+        <a href="{{ post.url }}">{{ post.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section id="rest">
+
+  <h2>REST</h2>
+  <p>That simple word has cost me too much of my time trying to work out exactly what it means. 
+I want to share my ramblings in a series of articles, hopefully it will prove useful to others. 
+At some stage soon I will sort out a comment system, as I would love to get feed back from others.</p>
   <ul>
     {% for post in site.categories.rest %}
       <li>
-        <a href="{{ post.url }}">{{ post.title }}</a>
-      </li>
-    {% endfor %}
-  </ul>
-<p>(hint: no articles live yet)</p>
-</section>
-<hr />
-
-<section>
-  <p>My home page</p>
-  
-  <ul>
-    {% for post in site.posts %}
-      <li>
+        <span class="date meta">{{ post.date | date_to_string }}</span> :: 
         <a href="{{ post.url }}">{{ post.title }}</a>
       </li>
     {% endfor %}
   </ul>
 </section>
-
-<hr /><p>filler<br />filler<br />filler<br />

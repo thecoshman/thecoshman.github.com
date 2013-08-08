@@ -1,6 +1,10 @@
 ---
 layout: default
+categories: other
 title: sample post
+published: false
+is_post: true
+last_edit: 30 May 2012
 ---
 
 ## My First Post
