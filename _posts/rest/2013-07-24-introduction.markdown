@@ -2,16 +2,16 @@
 layout: default
 categories: rest
 published: false
-title: RESTless thoughts
+title: RESTless Thoughts
 is_post: true
 ---
 
-## RESTfull design - RESTless thoughts
+## RESTfull Design - RESTless Thoughts
 
-Let me start this series by stating very clearly, I am in no way an experienced or authoritative source when it comes to the subject of REST. 
+Let me preface this series by stating very clearly, I am in no way an experienced or authoritative source when it comes to the subject of REST. 
 I am not a veteran designer of websites or web services. 
 By profession, I am a 'standard' software developer. 
-What I say in this series is based purely on my own experience with designing the grand total of one 'REST API' and all the research that has gone into it. 
+What I say in this series is based purely on my own experience with designing the grand total of one 'REST API' and all the 'research' that has gone into it. 
 
 I feel this series needs to be written to cover one particular aspect of 'REST APIs' that is hard to find clear concise information on; 
 dealing with multiple resources at once. 

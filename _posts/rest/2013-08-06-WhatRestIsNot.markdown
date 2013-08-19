@@ -9,9 +9,9 @@ is_post: true
 ## What REST Is Not
 
 To give the shortest answer to "what REST isn't" I would probably just say "a protocol".
-It may seem trivial, but it is a very important detail.
+It may seem trivial, but I think it is a *very* important detail.
 In fact, I might even go as a far to say that it is the most important detail, and hopefully after this article you will understand why I think this.
-What it tells you, at the most simplistic of levels, is that you have to remember 'REST' is nothing more then guidelines, there is no right or wrong.
+What it tells you, at the most simplistic of levels, is that you have to remember 'REST' is nothing more than guidelines, there is no right or wrong.
 That said, whilst there is no right and wrong, there is still good and bad.
 
 ### What *is* a Protocol
@@ -21,13 +21,14 @@ Taking the definition from the [OED](http://oxforddictionaries.com/definition/en
 > A set of rules governing the exchange or transmission of data between devices
 
 The key word there is 'rules', it is this ides that REST is 'rules' that I find most disturbing.
-There are no rules regarding REST saying you must work in a certain way.
+There are no rules regarding REST saying you must work in a certain way; 
+do not confuse the rules from technology you are using (HTTP for example) with rules from REST.
 If you attempt to follow a set of rules for REST you will likely find your self attempting to design a terrible API.
 
 ### Time for a Cup of Tea
 
 There is a mildly amusing ISO standard for brewing a cup of tea, [ISO 3103](http://en.wikipedia.org/wiki/ISO_3103).
-Now, to be fair, there is a reasonable purpose for such a standard, comparing 'blends' of tea is 'easier' or 'better' when brewed in a consistent manor.
+Now, to be fair, there is a reasonable purpose for such a standard, comparing 'blends' of tea is 'easier' or 'better' when brewed in a consistent manner.
 The point I want to consider with this standard is that it defines 'rules' for making a cup of tea.
 In practice people are not going to claim your tea is not tea because you brewed it for only three minutes rather then the six minutes the standard dictates, but nonetheless we have a set of rules as to what constitutes tea.
 
@@ -51,11 +52,11 @@ But then again...
 
 So what's my point?
 Whilst protocols can be good, they can also be bad. 
-The ISO 3103, might allow you compare tea in a more uniform way, but it obliterates peoples freedom to have tea that suites their tastes.
+The ISO 3103, might allow you compare tea in a more uniform way, but it obliterates the freedom people have to enjoy tea that suites their tastes.
 And it is that analogy I want to bring over to REST.
 REST is not a protocol, and that is a brilliant thing!
 There are certain protocols you would make use of, JSON and HTTP come to mind, but the meat of your API design is unconstrained.
-Kepe in mind though, there are still expectations of how REST will work, just like people tend to expect tea to  be served in a cup or pot.
+Keep in mind though, there are still expectations of how REST will work, just like people tend to expect tea to  be served in a cup or pot.
 
 ### What else is it not?
 
@@ -75,11 +76,14 @@ To take the sandwich shop example to an extreme, you have an underlying 'protoco
 * REQUEST an item, handing over money (a payload) -
     "Can I have a BLT, here is three Euro", to which you hope you get the response "Yes, here is your BLT"
 
-Now, this is not the perfect analogy, but hopefully you can see my point, the principles of REST have been applied to the process of ordering a sandwich, using a basic 'protocol' for human interaction.
-I do not want to jump ahead of myself here, but I must seize the opportunity to point out how I framed that as a stateless series of actions; when it came to paying for the sandwich, it did not rely on having previously asked about the BLT, you could jump directly to "Can I have a BLT, here is three Euro".
+Now, this is not the perfect analogy I grant you, but hopefully you can see my point; 
+the principles of REST have been applied to the process of ordering a sandwich, using a basic 'protocol' for human interaction.
+I do not want to jump ahead of myself here, but I must seize the opportunity to point out how I framed that as a stateless series of actions; 
+when it came to paying for the sandwich, it did not rely on having previously asked about the BLT, you could jump directly to "Can I have a BLT, here is three Euro".
 Like I said, I do not want to get carried away with such details, it is for a later article.
 The analogy also helps show how the data that is being transferred is rather trivial, what matters is *how* it is transferred.
-Again, sort of jumping the gun here, but the sandwich you are given by the sandwich master is not the exact BLT in the picture, but a *representation* of it; it just so happens that the representation you are given is a deliciously edible one.
+Again, sort of jumping the gun here, but the sandwich you are given by the sandwich master is not the exact BLT in the picture, but a *representation* of it; 
+it just so happens that the representation you are given is a deliciously edible one.
 
 To toy with pedant-ism, some people might claim that one of the strengths of REST is that it is 'lightweight'.
 'Lightweight' is a relative term, a blue whale is lightweight compared to the planet, itself lightweight compared to the sun, itself lightweight compared to [Betelgeuse](http://en.wikipedia.org/wiki/Betelgeuse).
