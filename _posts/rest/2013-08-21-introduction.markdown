@@ -1,8 +1,7 @@
 ---
 layout: default
 categories: rest
-published: false
-title: RESTless Thoughts
+title: RESTless Thoughts - Introduction
 is_post: true
 ---
 
