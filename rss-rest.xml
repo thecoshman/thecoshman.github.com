@@ -1,0 +1,25 @@
+---
+layout: none
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>thecoshman</title>
+    <description>Thoughts, Views, Opinions, Ramblings on the subject of REST</description>
+    <language>en-uk</language>
+    <link>http://thecoshman.com</link>
+    <atom:link href="http://thecoshman.com/rss-rest.xml" rel="self" type="application/rss+xml" />
+    <pubDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+    <lastBuildDate>{{ site.time | date: "%a, %d %b %Y %H:%M:%S %z" }}</lastBuildDate>
+
+    {% for post in site.categories.rest %}
+    <item>
+      <title>{{ post.title }}</title>
+      <description>{{ post.content | xml_escape }}</description>
+      <link>http://thecoshman.com{{ post.url }}</link>
+      <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+      <guid isPermaLink="true">http://thecoshman.com{{ post.url }}</guid>
+    </item>
+    {% endfor %}
+  </channel>
+</rss>

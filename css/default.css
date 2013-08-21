@@ -94,3 +94,10 @@ span.date.meta {
   font-family: monospace;
   color: #707070;
 }
+
+img.rss {
+  max-width: 16px;
+  padding: 0px;
+  margin: 0px;
+  margin-left: 10px;
+}
