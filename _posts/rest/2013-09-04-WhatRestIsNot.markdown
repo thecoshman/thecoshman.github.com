@@ -86,13 +86,13 @@ Again, sort of jumping the gun here, but the sandwich you are given by the sandw
 it just so happens that the representation you are given is a deliciously edible one.
 
 To toy with pedant-ism, some people might claim that one of the strengths of REST is that it is 'lightweight'.
-'Lightweight' is a relative term, a blue whale is lightweight compared to the planet, itself lightweight compared to the sun, itself lightweight compared to [Betelgeuse](http://en.wikipedia.org/wiki/Betelgeuse).
+'Lightweight' is a relative term, a blue whale is lightweight compared to our planet, itself lightweight compared to the Sun, itself lightweight compared to [Betelgeuse](http://en.wikipedia.org/wiki/Betelgeuse).
 It is true that a REST interface does not add much 'overhead' to HTTP, which it is so often used with, but that does not make it 'lightweight'.
 HTTP is a rather 'chatty' protocol, and if you were *really* concerned about the amount of data being sent, you would not use long wordy string based messages to communicate with a server.
 Yet people do use long wordy string based messages to communicate with servers, because it works.
 I am sure you could make a binary version of HTTP, reducing the size of messages dramatically, and use binary payloads for the data you send back and forth.
 Practicality steps in the way though, it takes time and effort to ensure you have done it correctly and HTTP has already solved these problems.
-You would need a good reason to wish to break away from such a wide spread system for which nearly every one has a client for, web browsers.
+You would need a good reason to wish to break away from such a wide spread system for which nearly every one has a client, their web browsers.
 So to say REST is lightweight is not really saying anything, what you really mean is that it does not impose any unnecessary overhead to existing protocols.
 
 As a final thing that REST is not, I will say that it is not an amazing new technology.
