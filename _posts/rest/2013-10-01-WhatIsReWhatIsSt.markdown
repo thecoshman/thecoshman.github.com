@@ -9,10 +9,10 @@ is_post: true
 ## So What does 'REST' mean?
 
 In this article, I will take a high level look at what REST means. 
-The word itself is just an anagram; REpresentational State Transfer. 
+The word itself is just an acronym; REpresentational State Transfer. 
 People will often use the word to describe a service as 'RESTful', 
 that *should* mean that the service is transferring representations of the state.
-Sounds easy, yet it's even easier to miss the point. 
+Sounds easy, yet it's all to easy to miss the point. 
 I shall attempt to explain what these three core concepts mean, trying very hard to focus on REST it self, and not details such as HTTP - I will pick on that another time.
 
 ### Transfer
@@ -20,25 +20,23 @@ I shall attempt to explain what these three core concepts mean, trying very hard
 This should be the easiest part to understand about REST. 
 The whole point of a REST architecture is to transfer data, even if that is just sending 'commands' to execute.
 With out data transfer, not much exciting is going to happen.
-What form this transfer takes does not matter, carrier pigeons would work just fine... though a bit slow perhaps. 
+What form this transfer takes does not really matter (carrier pigeons would be a bit slow perhaps).
 
-However, as much as REST is about transferring data, it is more about not transferring data. 
-I know I said I would try to avoid this, but we do have to admit, HTTP plays a big part when talking about REST.
-HTTP provides this idea of a caching. 
+However, the usual transport choice for REST is HTTP, which has a builtin caching mechanisms (I know, I promised not to dive into HTTP).
 When a server responds to a 'GET' request with a resource there can (hint - will almost always) also be some meta-data; 
-one bit of meta-data will tell the client for how long it should cache this resource. 
-If clients respect this properly, it can really help improve how much load a server can handle, and thus load times for clients. 
+one peice of this meta-data will tell the client for how long it should cache this resource. 
+If clients respect this properly, it can really help reduce server load, and thus response times for clients. 
 
-There are of course some resources that cannot be cached so readily. 
+There are of course some resources that cannot so readily be cached. 
 Take an example site that offers conversion rates for currencies, it has a URI like 'http://convertor.com/USD/EUR'. 
-GETting this URI will return a simple string such as '0.74763' but also a 'cache lifetime', such as '600 seconds'. 
+GETting this URI will return a simple string such as '0.74763' but also a cache-control header such as 'max-stale=600'. 
 The server is basically saying that if a user wishes to GET this URI within ten minutes, it should just use the same response.
 This is particularly useful when it comes to content that can take time to generate.
 
 In my opinion, details such as caching are some what superfluous to REST.
 Yes, you do need to consider such details; but it should be considered as a separate problem really. 
 Knowing how long to tell a client to 'cache' a result should not impact *how* a client actually gets that result in the first place.
-So the 'transfer' side of things within REST is kind of boring. 
+So, although *some* behaviour can be implemented there,  the 'transfer' side of things within REST is kind of boring. 
 
 ### State
 
