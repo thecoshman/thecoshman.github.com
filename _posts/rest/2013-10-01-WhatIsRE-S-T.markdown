@@ -2,7 +2,7 @@
 layout: default
 categories: rest
 published: false
-title: What is 'RE'; What is 'ST'
+title: What is 'RE-S-T'
 is_post: true
 ---
 
@@ -22,9 +22,9 @@ The whole point of a REST architecture is to transfer data, even if that is just
 With out data transfer, not much exciting is going to happen.
 What form this transfer takes does not really matter (carrier pigeons would be a bit slow perhaps).
 
-However, the usual transport choice for REST is HTTP, which has a builtin caching mechanisms (I know, I promised not to dive into HTTP).
+However, the usual transport choice for REST is HTTP, which has a built-in caching mechanisms (I know, I promised not to dive into HTTP).
 When a server responds to a 'GET' request with a resource there can (hint - will almost always) also be some meta-data; 
-one peice of this meta-data will tell the client for how long it should cache this resource. 
+one piece of this meta-data will tell the client for how long it should cache this resource. 
 If clients respect this properly, it can really help reduce server load, and thus response times for clients. 
 
 There are of course some resources that cannot so readily be cached. 
@@ -76,7 +76,7 @@ The same logic applies when it comes to putting a file on an FTP server, the req
 That command contains everything the server needs; who to execute the command as, their password, the action they want to do (list directory contents), and the options required for that action (a directory to list contents for).
 
 As an example, here is what some of these commands *could* look like:
-* `user:password put myLocalFileToUpload.log /home/user/myUploads/myUploadedFile.log` - upload a file
+* `user:password put myLocalFileToUpload.log /tmp/myUploadedFile.log` - upload a file
 * `user:password rm /home/user/myShamefullPartyPhoto.png` - remove a file
 * `user:pasword ls /home/user/` - list a directory
 
@@ -89,7 +89,7 @@ it cannot rely on the server 'just knowing' what the client had previously done.
 #### Why Bother?
 
 Now there are obvious disadvantages to a statelss protocol. 
-For example, you have to go through the authentication procedure every single time (if you need it authentication). 
+For example, you have to go through the authentication procedure every single time (if you need it). 
 You should certainly keep this in mind when designing the security: 
 those knowledgeable about security could tell you if it's easy to 'weaken' the system, 
 but that is out of the scope of what I am covering here.
@@ -125,25 +125,41 @@ Consider this in terms of the web.
 A URI such as 'mysite.com/example' is a way of identifying a resource. 
 When you make a request to GET this 'example' resource, you are not (normally) saying anything about how you wish it to be represented. 
 When you are presented the resource, it will come with some meta data saying what form the representation is in. 
-This 'meta data' will allow you, the client program, to know if it should render a web page, draw the image, play the music file etc.
+This 'meta data' will allow you, the client program, to know how to interpret the raw data just sent you.
+This idea is actually just common sense; 
+remember that REST is describing a generic program architecture, it is rather obvious that you can not dictate a one data format.
+Different applications will place different needs on the format of the data they need to send.
 
-This idea of using an abstract URI to get any resource is used in places other than the web.
-Your own computer can be thought of as using URIs to 'point' to files and folders. 
-Admittedly, file extensions do sort of confuse matters here; 
-but have you noticed that by default some operating systems will hide known file extensions? 
-It does this because to a user the file extension does not really matter. 
-If you have a file 'C:\Users\Me\Music\Awesome Album\The Best Song', assuming your files are organised, you do not need a silly file extension such as '.flac' to tell you, the user, that you are looking at a music file.
+Part of the theory would leave clients having to react to whatever representation the server provides.
+This would be a programming nightmare. 
+Luckily, it is very easy for a service to only provide one consistent format; it also lines up with idea of 'caching' resources. 
+A client need not request the same resource a second time if the max-age has not yet been reached; the logic being, the resource will still be exactly the same and it is bad to 'waste' bandwidth, so don't re-request it. 
+If each time the client requested a resource it got a different representation, it could still function, but the merit of its cache is servilely diminished. 
+Again, much like the shocking fact REST involves transferring data, this 'representational' business is rather sedate. 
+It boils down to a simple, and rather obvious, represent data how it best suits *your* application.
 
-However, that silly file extension is used by the OS to know what to do with a given resource;
-an '.flac' should be opened by a music player, an '.png' is to be opened in an image viewing application, etcetera.
-Now I am well aware that files on a computer only have the one way to represent them... mostly. 
-HTML files are an exception that comes to mind, you can either edit them as text or display them as a rendered page in your browser.
+The 'representational' aspect to REST is also referring to the 'state' of the client.
+As the server does not store any state data, it is upto the client to transfer it to the server.
+It is the clients responsibility to send to the server details such as what items a client has in it's 'shopping cart' (when it needs to send that information). Yes, constructs such a shopping cart should only exist on the clients machine.
+There is no need for a client to tell the server what items it is thinking about, until it wishes to purchase those items. 
+This goes directly against what most shop sites would want. 
+As much as it may not be 'REST', knowing what potential customers are looking at and what they are thinking of buying is mighty fine information.
+
+To preemptively shoot down ideas that it is all about shops, allow me to provide a real world game as a bit a study, [Candy Box](http://candies.aniwey.net/index.php).
+In this web based game, the progress of the player is kept client side, in fact all the processing is done client side. 
+The aspect of Candy Box that I want to focus on is how the game is saved.
+It provides a 'save' button, and on clicking it you are present a message saying your game is saved under a random name, this name can used as part of the URI to restore the state of your game.
+You could write command-line version of this game and still interface with the same save server that the web based version uses.
 
 ## Wrap It Up
 
 To try to condense that all down to a few key points about what REST is / means.
 
-* Representations - Clients are given a representation of the resource they request
-* Stateless - The server does not store any state about clients
-* Transfer - At the end of the day, it's about moving data from A to B
+* Representational - Clients send a representation of what 'state' they are in, they are given representations of the resources they request
+* State - The server does not store state about clients or sessions, it is the clients responsibility to send all required data
+* Transfer - At the end of the day, it's about moving data from A to B, this includes a representation of the state the client is in
 
+The stateless nature is the biggest aspect, and has strong influence on the other two. 
+Representation of the state means sending only what is required by a server to complete a request.
+As the architect of a system, you are free to apply the principles of REST as strictly as you wish, there are situations where being a bit stateful has advantages.
+Whilst the representations can take any form, it is better to decided what one form you will use, and again it is up the you the architect to work out which to use.
