@@ -1,7 +1,6 @@
 ---
 layout: default
 categories: rest
-published: false
 title: What is 'RE-S-T'
 is_post: true
 ---
