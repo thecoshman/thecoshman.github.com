@@ -1,0 +1,18 @@
+---
+layout: default
+categories: ksp
+title: Kerbal Alarm Clock
+published: true
+is_post: true
+permalink: ksp
+external_link: http://forum.kerbalspaceprogram.com/threads/24786
+in_pack: true
+licence: None
+---
+
+Are you the sort of person who flies one ship at a time?
+Just time warping that one vessel years at a time, whilst the Kerbals back home sit idle.
+Don't think it would be better to have many missions ongoing at once?
+Problem with doing so is that you end up missing important manoeuvres.
+well not any more!
+Not only can this alarm clock remind when you a manoeuvre, sphere of influence, apo- or periapsis is close, but it can also save that previous manoeuvre node you spent ten minutes getting just right.

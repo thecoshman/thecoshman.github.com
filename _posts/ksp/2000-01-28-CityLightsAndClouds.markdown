@@ -6,6 +6,8 @@ published: true
 is_post: true
 permalink: ksp
 external_link: http://forum.kerbalspaceprogram.com/threads/55905
+in_pack: true
+licence: MIT
 ---
 
 This is a purely cosmetic mod, and one I do not use out of the box. 

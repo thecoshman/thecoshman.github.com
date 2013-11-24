@@ -1,0 +1,16 @@
+---
+layout: default
+categories: ksp
+title: L-Tech Scientific Stuff
+published: true
+is_post: true
+permalink: ksp
+external_link: http://forum.kerbalspaceprogram.com/threads/53813
+in_pack: true
+licence: GNU GPL
+---
+
+This is another pure parts pack, adding a few science experiments things.
+Nothing over powered in my opinion, you can't get vast mounts of additional science with ease. 
+There is a camera experiment, that lets the Kerbals back home see what your ship is getting up to. 
+There is also a 'parts bin', that let's you store EVA surface samples and reports, which jut helps take away the grind of having get in and out to get and report one sample at a time.

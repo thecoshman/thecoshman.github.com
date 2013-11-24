@@ -1,0 +1,19 @@
+---
+layout: default
+categories: ksp
+title: Stack Inline Lights
+published: true
+is_post: true
+permalink: ksp
+external_link: http://forum.kerbalspaceprogram.com/threads/52014
+in_pack: false
+licence: Creative Commons
+---
+
+This mod comes in three flavours, all aimed at a offering a ring light that can sit in-line with your rocket, rather than sitting out like the normal lights do.
+The first is an amazingly well made part, the second being a lower quality version. 
+These are both just one part, offering a lovely blue-white bright light that can illuminate the area around your craft.
+The third variant of this mod offers the light in four radial sizes, and more awesomely, a colour picker.
+Yeah that's right, you can have your ring light in any colour you could wish for!
+
+I have not yet added it to the pack, as I want to make sure it is set up right.

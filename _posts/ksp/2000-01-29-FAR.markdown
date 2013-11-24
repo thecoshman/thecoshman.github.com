@@ -6,10 +6,12 @@ published: true
 is_post: true
 permalink: ksp
 external_link: http://forum.kerbalspaceprogram.com/threads/20451
+in_pack: true
+licence: Creative Commons
 ---
 
 It's hard to not understate this mod, it basically completely replaces the stock aerodynamics model. 
 You are almost guaranteed to have all of the planes and rockets 'broken' by this mod, but in my opinion it is worth it. 
 Everything 'feels' more balanced with this mod.
 For example, nose cones actually *help* now! 
-It also provides some (optional) enhancements to the SAS that can help prevent wobbling.
+It also provides some (optional) enhancements to the SAS and a way to control what flaps are used for (pitch,yaw,roll) that can help prevent wobbling.

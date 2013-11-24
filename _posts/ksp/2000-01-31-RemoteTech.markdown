@@ -5,7 +5,9 @@ title: Remote Tech
 published: true
 is_post: true
 permalink: ksp
-external_link: http://forum.kerbalspaceprogram.com/threads/16347
+external_link: http://forum.kerbalspaceprogram.com/threads/56399
+in_pack: true
+licence: GNU GPL
 ---
 
 This mod is great! 

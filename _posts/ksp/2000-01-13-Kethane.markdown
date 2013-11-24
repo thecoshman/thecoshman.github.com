@@ -1,0 +1,18 @@
+---
+layout: default
+categories: ksp
+title: Kethane
+published: true
+is_post: true
+permalink: ksp
+external_link: http://forum.kerbalspaceprogram.com/threads/23979
+in_pack: false
+licence: Bespoke
+---
+
+This mod adds a new resource to the game - Kethane.
+It also adds mechanics for scanning for it and mining it.
+Once you have detected a Kethane deposit and mined it, you can then convert it more useful supplies.
+This will allow you to send large ships to other planets that only carry enough fuel for one direction, they can then refuel on arrival so that they can return home.
+
+Sadly the licence for the Kethane mod means I can not add it to my pack.

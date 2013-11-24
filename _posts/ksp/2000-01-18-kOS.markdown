@@ -1,0 +1,17 @@
+---
+layout: default
+categories: ksp
+title: kOS Scriptable Autopilot System
+published: true
+is_post: true
+permalink: ksp
+external_link: http://forum.kerbalspaceprogram.com/threads/47399
+in_pack: true
+licence: GNU GPL
+---
+
+I use this a lot less than I would like.
+Early in the tech tree, you will unlock a special part. 
+Adding this part to your ship provides an on-board computer through which you can script more or less anything you want.
+In theory, you can write a script that can take a satellite from the launch pad to geo-synch orbit; use this three times, a third of an in game day apart and you will have a nice satellite constellation set up in no time.
+Like I said, I hardly use this, mostly because I just never get around to writing those scripts, but I still think this mod is great.
