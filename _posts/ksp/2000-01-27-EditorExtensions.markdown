@@ -6,7 +6,7 @@ published: true
 is_post: true
 permalink: ksp
 external_link: http://forum.kerbalspaceprogram.com/threads/38768
-in_pack: true
+in_pack: false
 licence: MIT
 ---
 

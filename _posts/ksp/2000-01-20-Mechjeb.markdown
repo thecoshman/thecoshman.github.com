@@ -6,7 +6,7 @@ published: true
 is_post: true
 permalink: ksp
 external_link: http://forum.kerbalspaceprogram.com/threads/12384
-in_pack: true
+in_pack: false
 licence: GNU GPL
 ---
 
@@ -14,3 +14,5 @@ This mod does a lot of stuff.
 A lot of automation and so on can be done for you.
 I use it for just one feature, getting information about dV stat's during ship building.
 Some what frustratingly, to get that information requires you have a MechJeb module attached to your ship, but I guess by the time you unlock it, you are still not quite ready for such information.
+
+As I only use it for the dv information it seems silly for me to add this mod to my pack, so I am leaving it out.

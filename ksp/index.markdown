@@ -17,12 +17,12 @@ There are some mods out there that are perfectly usable in the current .22 versi
 ## MOD Pack
 
 I have bundled together all the mods that I like (where permission permits) into this MOD pack. 
-Not all the mods I would like to add grant permission, in which you will have to get them separately your self.
+Not all the mods I would like to add grant permission, in which case you will have to get them separately yourself.
 
 Pack contains:
 {% assign had_first = false %}{% for mod in site.categories.ksp %}{% if mod.in_pack %}{% if had_first %},{% else %}{% assign had_first = true %}{% endif %} [{{ mod.title}}](#{{ mod.title | remove:' ' }}){% endif %}{% endfor %}.
 
-I have made some tweaks to the mods to help them work together, such as RealChutes having the 'drag' set down to 0 when used with FAR, or replacing the textures in TAC Life Support rather than suffer the crude mock textures. 
+I will add some tweaks to the mods (again, where permission permits) to help them work together, such as RealChutes having the 'drag' set down to 0 when used with FAR, or replacing the textures in TAC Life Support rather than suffer the crude mock textures. 
 Some of the changes in this mod pack will impact the vanilla items, so you will need to 'merge' this changes into your KSP install, letting it replace files where needs be. 
 As with all mods, I suggest you back up KSP install first, and probably start a new save file once you have thrown all these mods into the mix.
 

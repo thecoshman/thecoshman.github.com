@@ -6,7 +6,7 @@ published: true
 is_post: true
 permalink: ksp
 external_link: http://forum.kerbalspaceprogram.com/threads/51037
-in_pack: true
+in_pack: false
 licence: Creative Commons
 ---
 
@@ -18,3 +18,5 @@ The fairings are particularly nice, and it sure does look better to not have tha
 
 One thing I would say against it though, whilst it does introduce more 'realistic' parts, it feels a bit like it just completely disregards the existing parts.
 So perhaps not a 'must have' pack, but still very nice to have, and it does provide some very funky looking parts.
+
+Whilst a great mod, I have chosen not to include this in my pack. It is a rather large mod, so not doing so will help keep the packs size down, but it is also (and I mean no offense here) just more parts. I do not feel these additional parts are needed, as nice as they are.

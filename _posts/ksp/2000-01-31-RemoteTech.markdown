@@ -6,7 +6,7 @@ published: true
 is_post: true
 permalink: ksp
 external_link: http://forum.kerbalspaceprogram.com/threads/56399
-in_pack: true
+in_pack: false
 licence: GNU GPL
 ---
 
@@ -25,3 +25,5 @@ No longer will a huge bank of batteries and gigantic solar arrays seems so silly
 This mod integrates with the tech tree, unlocking a nice progression of transmitters with more range and better efficiency.
 
 Frankly, it feels like cheating to *not* use this mod!
+
+Sadly, whilst the code for this mod is free to use, the art assets are not, and so I am not able to include it directly in my pack. I strongly advise you do download and add it though.

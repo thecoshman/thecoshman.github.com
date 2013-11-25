@@ -15,3 +15,5 @@ This mod just works so smoothly, and *really* does need to be added to the core 
 Don't let the name fool you, re-entry is not an automatic death wish, you just can no longer let your ships drop into the atmosphere at high speeds. 
 Aim to cut through the atmosphere at around 50 km and you should be fine, should be.
 There are a few additional parts, heat shields mostly, but everything fits in well, helped by good use of the tech tree. 
+
+Oh, due to a detail in the original licence, I need to say "ialdabaoth is awesome" in my readme...

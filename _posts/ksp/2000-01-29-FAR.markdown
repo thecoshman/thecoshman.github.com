@@ -6,7 +6,7 @@ published: true
 is_post: true
 permalink: ksp
 external_link: http://forum.kerbalspaceprogram.com/threads/20451
-in_pack: true
+in_pack: false
 licence: Creative Commons
 ---
 
@@ -15,3 +15,7 @@ You are almost guaranteed to have all of the planes and rockets 'broken' by this
 Everything 'feels' more balanced with this mod.
 For example, nose cones actually *help* now! 
 It also provides some (optional) enhancements to the SAS and a way to control what flaps are used for (pitch,yaw,roll) that can help prevent wobbling.
+
+The mod author has said he would prefer I do not include it, which is fair enough. 
+Like ferram said himself, this reall does change the game. 
+So it is up to you, I advise you do get it, and keep it up-to-date (like all mods really).

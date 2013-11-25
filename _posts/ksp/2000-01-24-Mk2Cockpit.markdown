@@ -6,10 +6,12 @@ published: true
 is_post: true
 permalink: ksp
 external_link: http://forum.kerbalspaceprogram.com/threads/44012
-in_pack: true
+in_pack: false
 licence: none
 ---
 
 This provides a beautifully detailed model for the Mk2 cockpit. 
 In my opinion, IVAs are mostly just a cosmetic thing, so why not make it look amazing.
 Squad have not got around to adding this yet, so this mod provides it for you.
+
+Sadly, no visible licence, so having to ask author for permision to find out.

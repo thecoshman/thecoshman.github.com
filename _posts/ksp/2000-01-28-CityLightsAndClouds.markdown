@@ -16,3 +16,5 @@ There is also a night time effect of city lights, but I have chosen to not use t
 
 If you are the sort of person who feels mod can ruin the game, this is the mod to prove you wrong. 
 Unless of course you like Kerbin looking bland, sterile and with out any interesting atmosphere. 
+
+I have permision to include this mod, so it will be in, I just need to sort out the initial version of my pack.

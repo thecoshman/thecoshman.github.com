@@ -6,7 +6,7 @@ published: true
 is_post: true
 permalink: ksp
 external_link: http://forum.kerbalspaceprogram.com/threads/54656
-in_pack: true
+in_pack: false
 licence: Creative Commons
 ---
 
@@ -15,3 +15,5 @@ This adds a new experiment to the game, providing a bit more science to be earne
 I was hesitant at first about adding a new way to get science, fearing it might make it too easy, but this experiment only offers a small amount of science per 'biome', so no worries there.
 Factor in how Remote Tech and TAC Life Support make things harder, I feel this experiment is very justifiable.
 And did I mention just how nicely made this is?
+
+Awaiting confirmation that the licence covers the artwork too, and man do I hope it does, it is such a grougous but of work.
