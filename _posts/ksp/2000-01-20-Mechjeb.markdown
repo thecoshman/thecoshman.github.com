@@ -2,7 +2,7 @@
 layout: default
 categories: ksp
 title: MechJeb
-published: true
+published: false
 is_post: true
 permalink: ksp
 external_link: http://forum.kerbalspaceprogram.com/threads/12384
