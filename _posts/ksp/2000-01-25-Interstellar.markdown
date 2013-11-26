@@ -6,7 +6,7 @@ published: true
 is_post: true
 permalink: ksp
 external_link: http://forum.kerbalspaceprogram.com/threads/43839
-in_pack: false
+in_pack: true
 licence: Bespoke
 ---
 
@@ -16,5 +16,3 @@ It introduces the new parts towards the end of the tech tree.
 I do wander what use faster then light travel will be once you have maxed out the tech tree, what science will there be left to get?
 That said, perhaps I will look at getting a mod that adds somewhere to go in the mean time I could just enjoy exploring the kerbin system.
 As I understand it, unlike most 'wrap drive' style parts packs, this one does not fell over powered, you have work towards getting the very high end engines. 
-
-I am fairly sure the licence permits inclusion in a mod pack, but awaiting confirmation from the author.
