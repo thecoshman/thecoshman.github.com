@@ -1,7 +1,6 @@
 ---
 layout: default
 categories: rest
-published: false
 title: Verbs, Nouns and Adjectives?
 is_post: true
 ---
@@ -9,13 +8,13 @@ is_post: true
 ## Let's talk HTTP
 
 I have said in previous articles how REST should not automatically imply HTTP; for this article at least, I will concede that REST is in-fact almost always implemented over HTTP.
-And whilst I am getting these confession out of the way, adjectives are not a part of this article.
+Whilst I am getting these confession out of the way, adjectives are not a part of this article.
 This article is going to look at the 'verbs' of HTTP, otherwise known as the 'methods'.
 The nouns are just the resources that a user calls methods on. 
 A HTTP request contains a verb for what they want to do along with a URI to say on what noun you want to do this action. 
 
 HTTP1.0 got the ball rolling with three methods; GET, POST and HEAD. HTTP1.1 introduced five more; OPTIONS, PUT, DELETE, TRACE and CONNECT. 
-That's it, as far as [RFC2616](http://tools.ietf.org/html/rfc2616) is concerned there are only eight types of request to make all the magic work. 
+That's it: as far as [RFC2616](http://tools.ietf.org/html/rfc2616) is concerned there are only eight types of request to make all the magic work. 
 Well, not exactly, as the protocol does allow for a server to accept other methods. 
 It also fails to cater for what I would consider a rather 'normal' task, but I will leave you in suspense about this until later.
 
@@ -31,11 +30,11 @@ If the user asks to GET a resource, just go for it, all that *should* do is retr
 
 Idempotent methods are 'those that have the property of idempotence', which seem like the specification is saying "hot things are hot". 
 In laymen's terms, idempotent methods would be ones that you can apply repeatedly without the effect changing. 
-Again, GET is a good example, no matter how many times you GET a single resource, the result is the same.
+Again, GET is a good example, no matter how many times you GET a single resource, the result is the same (dynamic sites, such as a forum can muddy this up).
 DELETE is also considered idempotent, obviously you can only delete a resource once, but think not of the action of deleting, but the effect of a resource no longer existing.
 According to the specification it is possible, though I do struggle think how, that a series of idempotent requests is not itself idempotent.
 
-For the sake of brevity and keeping focused on the methods them selves, I will refrain from talking about all the other things that a server could respond with, like authentication requests.
+For the sake of brevity and keeping focused on the methods themselves, I will refrain from talking about all the other things that a server could respond with, like authentication requests.
 
 ### GET
 
@@ -57,18 +56,20 @@ I'm not advocating either way, your application will dictate what makes the most
 ### POST
 
 The POST method is used to store a 'thing' on the server 'somewhere' - fuzzy I know, sit tight.
-Obviously this method is not safe, that would imply that once a 'thing' was POSTed to the server a client could never see it, and so POSTed that 'thing' for no reason.
+Obviously this method is not safe. 
+If it was, that would imply that once a 'thing' was POSTed to the server a client could never see it, and so POSTed that 'thing' for no reason.
 Neither is this method idempotent, every time a client POSTs a 'thing' to a server, it should return a new URI that can be used to GET that 'thing' back again (in some form).
 
 I keep saying 'thing' because there really is no limit on what the client can send to the server, nor what the server then does with that.
-A client could POST some data in XML, with which the server could then process and store in a relational data base and offer a URI that can retrieve this new data in some bespoke format
-Of course, the server is under no obligation to actually store what it is sent (such as if the URI does not except POST requests), but when it does store what it is sent, it should be telling the client where it is stored.
+A client could POST some data in XML, with which the server could then process and store in a relational data base and offer a URI that can retrieve this new data in some bespoke format.
+Of course, the server is under no obligation to actually store what it is sent (such as if the URI does not except POST requests), but if it does store what it is sent, it should be telling the client where it is stored.
 You also need to consider that the URI that is to be used to GET the new resource is completely up to the server.
 
 
 ### HEAD
 
-A HEAD request is just like a GET request in more or less every way, except the server should not only send the header information that it would send.
+A HEAD request is just like a GET request in more or less every way. 
+It differs in that the server must only send the header information that it would send.
 I can only guess that in the early days when HTTP was being thought up, it was useful to have some sort of 'probe'.
 Perhaps it was useful to be able to see if a resource is still at a URI without having to actually transfer it.
 Just like GET, this is safe and idempotent.
@@ -79,4 +80,5 @@ I wouldn't go as far as to say you *shouldn't* use use this method, but I doubt 
 As short as this article is, it is actually taking me longer than I expected to write. 
 This is partial because I want to make sure I don't get things wrong; 
 but a good part of it is because I have not spared enough for this.
-So far I have covered the three methods that HTTP 1.0 started with, and I want to get something up, so I shall tackle the methods introduced by HTTP 1.1 next time.
+So far I have covered the three methods that HTTP 1.0 started with.
+I will tackle the methods introduced by HTTP 1.1 in my next post.
