@@ -3,7 +3,7 @@ layout: default
 categories: rest
 title: The Other Verbs
 is_post: true
-published: true
+published: false
 ---
 
 ## A quick recap
