@@ -35,7 +35,8 @@ Like I said, some MODs  are not included (for what ever reason) you should get t
 
 ### Download and Install
 
-Any way, on to the download! You can get a copy from the [Kerbal Spaceport](http://kerbalspaceport.com/thepiratepack/). 
+Any way, on to the download! 
+You can get a copy from the [Kerbal Spaceport](http://kerbalspaceport.com/thepiratepack/). 
 To install this, just extract the 'GameData' folder into you KSP installation, there should be an existing 'GameData' folder to merge into.
 You will need to allow some of the files to be replaced; 
 if you do not allow this, the Mk2 cockpit will not work correctly, and you will still have the stock parachutes even though you don't need them.
