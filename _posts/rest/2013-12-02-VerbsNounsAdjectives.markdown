@@ -3,6 +3,7 @@ layout: default
 categories: rest
 title: Verbs, Nouns and Adjectives?
 is_post: true
+comments: true
 ---
 
 ## Let's talk HTTP

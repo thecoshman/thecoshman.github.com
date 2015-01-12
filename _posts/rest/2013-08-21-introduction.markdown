@@ -3,6 +3,7 @@ layout: default
 categories: rest
 title: RESTless Thoughts - Introduction
 is_post: true
+comments: true
 ---
 
 ## RESTful Design - RESTless Thoughts

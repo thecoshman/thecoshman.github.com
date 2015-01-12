@@ -7,13 +7,31 @@
       window.heap=window.heap||[],heap.load=function(t,e){window.heap.appid=t,window.heap.config=e;var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=("https:"===document.location.protocol?"https:":"http:")+"//cdn.heapanalytics.com/js/heap.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(t){return function(){heap.push([t].concat(Array.prototype.slice.call(arguments,0)))}},p=["clearEventProperties","identify","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
       heap.load("2368420511");
     </script>
+{% if page.comments %}
+    <script type="text/javascript">
+var disqus_shortname = "thecothecoshmanshman";
+var disqus_identifier = "{{ page.url }}";
+var disqus_title = "thecoshman - {{ page.title }}";
+var disqus_url = "http://thecoshman.com{{ page.url }}";
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+    </script>
+{% endif %}
   </head>
   <body>
 {% include header.html %}
     <div id="main_content_wrap" class="outer">
       <article id="main_content" class="inner">
 {{ content }}
+{% if page.comments %}
+        <div id="disqus_thread"></div>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+{% endif %}
       </article>
+
     </div>
 {% include footer.html %}
   </body>

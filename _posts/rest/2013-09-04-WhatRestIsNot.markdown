@@ -3,6 +3,7 @@ layout: default
 categories: rest
 title: What REST Is Not
 is_post: true
+comments: true
 ---
 
 ## What REST Is Not

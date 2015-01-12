@@ -3,6 +3,7 @@ layout: default
 categories: rest
 title: What is 'RE-S-T'
 is_post: true
+comments: true
 ---
 
 ## So What does 'REST' mean?
