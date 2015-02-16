@@ -32,8 +32,22 @@ I might make a more detailed post about this at some stage, though there really 
   </ul>
 </section>
 
-<section id="rest">
+<section id="tag">
+  <h2>
+    Technically A Game <!--<a href="/rss-rest.xml"><img class="rss" src="images/rss.png" /></a>-->
+  </h2>
+  <p>A series of posts charting my stumblings back into the word of games programing.</p>
+  <ul>
+    {% for post in site.categories.tag %}
+      <li>
+        <span class="date meta">{{ post.date | date_to_string }}</span> :: 
+        <a href="{{ post.url }}">{{ post.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
 
+<section id="rest">
   <h2>
     REST <a href="/rss-rest.xml"><img class="rss" src="images/rss.png" /></a>
   </h2>
