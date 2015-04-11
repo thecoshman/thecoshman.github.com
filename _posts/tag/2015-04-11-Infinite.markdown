@@ -1,0 +1,104 @@
+---
+layout: default
+categories: tag
+title: Infinite!
+is_post: true
+comments: true
+---
+
+## An Infinite World of Insanity
+
+Given enough RAM you can now explore the terrain until your sanity runs out.
+I really need to sort out some nicer textures though, the three blocks I have 'designed' so far just terrible, truly terrible. 
+But here we are folks, version four of my wee project. 
+As always, I'll offer a build of the game [here](/downloads/tag/TAGDV4); 
+in fine tradition, it is a 64bit build for linux.
+
+![Sample of V4](/images/tag/v4/sample.png)
+
+## The Great Chunkification!
+
+I knew I would have to do it eventually, it turned out now was the time, although it was one of the last things done for this update.
+For no better reason than Minecraft does, I made the chunk size 16 blocks, though unlike Minecraft, my chunks are only 16 blocks high. 
+Previously I stored the entire world in a single std::map<world_coord, cube>, which meant it only stored as many blocks as were actually blocks;
+the empty air spaces wouldn't use any memory.
+Now though, I've changed to std::map<chunk_coord, chunk>, with each of these having a fixed size 16\*16\*16 array of cubes. 
+
+At just over 4k blocks per chunk, I might look at doing some sort of basic compression later on, maybe something simple like "run length encoding", so an 'empty' chunk of air is just "air block x 4096".
+As with most things, it would be trade of, more CPU time for using less ram, something to consider later perhaps or not at all even.
+On a similar train of thought, brute force rendering this many cubes just kills performance. 
+My PC is not *terrible*, but once I start trying to render around 16 chunks (a 4 by 4 area around the player) frame rate starts to suffer noticeably; 
+that is 65k cubes, each one making lookups and requests to the GPU.
+I have started to put in place a solution to this though, display chunks!
+
+I have one class that manages the entire voxel grid, it abstracts away this notion of chunks (mostly).
+The actual world data is stored in instances of 'data_chunk', which is used for almost everything. 
+The key exception is when it comes to rendering, which due to it's different requirements, is done using instances of 'display_chunk'. 
+Right now, the main display function will iterate through a collection of these display chunks around the player; 
+for each display chunk, the main render function will loop over each cube rendering it one at a time.
+All told, far too leaky an abstraction for my liking, also not really that smart. 
+
+In latter versions, smartening up the rendering of terrain should restore reasonable rendering performance. 
+When you think about it, a chunk is not updated that often, most of the time you will be rendering the same chunk over and over. 
+This means that it is most certainly worth buffering data on the GPU that can render the chunk much more efficiently. 
+It will be a lot 'cleaner' to just call 'world.render()', and let it take care of all this chunk nonsense. 
+
+## Advanced Movement 
+
+One of the other aims of this update was improving movement. 
+The most notable change is that you can now [jump around](https://www.youtube.com/watch?v=KZaz7OqyTHQ) and fall down by the mystical force that is gravity. 
+I want to play around with the mechanics of the jumping though as it feels floaty to me. 
+Walking has also been made 'not sticky', in earlier versions I crudely stopped any movement if the player touches the walls, this has now been fixed so you can strafe against them.
+The movement also has a very slight inertia so the player does not stop instantly if they let go of the keys, it's a very subtle thing but I like the feel of it. 
+Whilst failing you also have some control over movement, I know it's not realistic, but 'air walking' is so natural in games.
+
+## Smarter Algorithms 
+
+There were two main algorithms interacting with the voxel grid, both were pretty dumb. 
+One was for the players AABB and the other was for 'rays' from the player, detecting what block is being hit. 
+The actual AABB-AABB or Ray-AABB algorithm has not changed, what has changed is no longer checking *every* cube in the world. 
+For the players AABB, I build a small collection of cube co-ordinates that the player might be interacting with.
+As the player is only two blocks high, it means that at most, there is only a maximum of 12 possible cubes the player could be interacting with. 
+
+For the ray tracing, I now work out what cube the ray starts in and what direction it is moving. 
+From there I move one block at a time, testing if it is hit by the ray. 
+This drastically reduces the number of checks that are required.
+If a ray starts at (2.5, 2.5, 3.9) and has a direction of (3.2,0.1, -2.3), converted to the grid, it starts in cube (2, 2, 3) and ends in (5, 2, 1), moving in (1,0,-1) direction.
+I then loop until my 'current cube' (which is initially the 'start cube') is the 'end cube', each loop I test what would happen if I advanced one cube in certain direction.
+As a slight optomisiation, I have a vector of potential advancements ie (1,0,0) and (0,0,-1) to loop through (notice how I never check for cubes at a different y position). 
+If I try a cube and find that it is hit by the ray, I add it to my collection of cubes that I know are on the ray, and then make this my current cube.
+
+
+![Diagram of the ray tracing](/images/tag/v4/raytrace.png)
+
+So that's my attempt at a diagram to explain the logic of this ray tracing, reduced to just two dimensions, but it's the same principle in 3D. 
+We start in the green square, and want to trace to the red square. 
+Each number shows the order in which the squares are checked, the little arrows are red if the square is found to not be on the line, and green if it is. 
+For this example, each time a new square is found on the line, we first check the square below, then to the right. 
+A total of eight checks are made, of which three return 'no hit', a roughly 40% fail rate, which I believe gets worse as you move through higher dimensions. 
+If the order was swapped, attempting to move right then down, we'd have seven checks with only two 'no hit' checks, but that would require first working out there was a better order. 
+
+## Terrain Generation 
+
+I put in a simplex noise algorithm that can generate a noise value for a given point on the 2D plane that is the world. 
+I then use that noise value to work out how high the ground should be at that point, and then stack cubes to match that. 
+Good terrain it most certainly is not, but at least it's something that I can move on with. 
+Due to the limitations in it's design (ie aka corner cutting), I had to limit the generation to only work for chunks at y 0. 
+The terrain is generated made up using only one type of cube, when I start to add more cubes, I can look to do things like 'top soil', mineral deposits, caves, all the normal things you would expect really. 
+
+## HUDs and stuff
+
+For the next update I am going to focus on the HUD, primarily getting text rendered to the screen. 
+This will allow me to free myself from the console, as I believe that presently, you can't actually start the game without doing so from the console. 
+As I said, I would mostly like to focus on getting text drawn, then I can start to put information on screen such as the sacred FPS value, but also things such as how many chunks (of each type) are loaded, where the player is and so on.
+
+Some other things that I want to start looking into in general is logging, testing and build automation. 
+Logging is low down on that list to be fair, it will be useful later on for sure, when I get to it I'll have a proper look around, but I'm thinking [log4cplus](http://sourceforge.net/p/log4cplus/wiki/Home/).
+Testing is mostly functional testing, for which I will probably use [Catch](https://github.com/philsquared/Catch), but I might also look at using [Nonius](https://github.com/rmartinho/nonius) to put put some timing tests. 
+Accurate timing will be *very* useful later on when I  am trying to improve the performance in trouble areas, though of course just some good old fashioned thinking about stuff can help a lot there too.
+In fact, logging will be helpful there too... but yeah, for now logging and timing is not really required. 
+Build automation is one of those things that just needs to be done, especially if I want to get build for other platforms. 
+I'm going to have to look into this a bit more, but I currently thinking [Travis](https://travis-ci.org/).
+Out of all of this, I may find that my current premake build scripts become tiresome to work with, so that might change too.
+
+So all told, version five will rather dull from a player point of view, but these technical back end things have to be done at some point. 
