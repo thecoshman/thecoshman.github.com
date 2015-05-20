@@ -4,6 +4,7 @@ categories: rest
 title: The Other Verbs
 is_post: true
 comments: true
+last_edit: 20 May 2015
 ---
 
 ## A quick recap
@@ -30,7 +31,7 @@ I'm sure if you are trying to debug some issues it could be handy, but for the n
 
 OK, now this is something that you shouldn't have to think twice about. 
 It's used to help upgrade from HTTP to HTTPS. 
-I'm not an expert on the old security stuff, but as I understand it, most framework will manage this for you.
+I'm not an expert on the old security stuff, but as I understand it, most frameworks will manage this for you.
 So, don't think for a second you can avoid using it, equally don't waste time managing this yourself.
 
 ### Methods of Merit

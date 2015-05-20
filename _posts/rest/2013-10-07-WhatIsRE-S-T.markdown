@@ -76,6 +76,7 @@ The same logic applies when it comes to putting a file on an FTP server, the req
 That command contains everything the server needs; who to execute the command as, their password, the action they want to do (list directory contents), and the options required for that action (a directory to list contents for).
 
 As an example, here is what some of these commands *could* look like:
+
 * `user:password put myLocalFileToUpload.log /tmp/myUploadedFile.log` - upload a file
 * `user:password rm /home/user/myShamefullPartyPhoto.png` - remove a file
 * `user:pasword ls /home/user/` - list a directory

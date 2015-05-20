@@ -4,6 +4,7 @@ categories: rest
 title: Verbs, Nouns and Adjectives?
 is_post: true
 comments: true
+last_edit: 20 May 2015
 ---
 
 ## Let's talk HTTP
@@ -42,7 +43,7 @@ For the sake of brevity and keeping focused on the methods themselves, I will re
 The GET method is a straight forward method to understand. 
 It is both safe and idempotent. 
 A client will 'GET' a URI and the server will respond with the resource. 
-There is potential for a client to indicate in the headers how they want the resource presented, xml of json for example. 
+There is potential for a client to indicate in the headers how they want the resource presented, xml or json for example. 
 Along with the resource, the server can provide some meta data, such as how to interpret the resource.
 
 Usually, there would be no need for a clients GET request to contain a body.

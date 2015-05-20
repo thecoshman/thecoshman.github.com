@@ -1,0 +1,74 @@
+---
+layout: default
+categories: rest
+title: CRUD HTTP Mapping
+is_post: true
+comments: true
+published: false
+---
+
+# I Shall Say This Only Once
+
+In my best bad French accent, [I shall say this only once](https://www.youtube.com/watch?v=A4I9DMSvJxg). 
+[CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) is a rather well known abbreviation to describe a set of actions that is supported by basically every persistence system, more specifically data bases. 
+Whilst the HTTP methods have a striking resemblance to the classic 'CRUD' operations, they do not map one to one! 
+Excuse me whilst I go try to calm down a bit.
+
+## Create
+
+HTTP does not create resources. 
+
+That I shall repeat, the HTTP protocol says nothing at all about creating anything. 
+
+You think I'm crazy? 
+Tell me then, how do you create a resource with HTTP? 
+With POST, or maybe PUT, you say?
+Oh no no no, just think about what you said.
+"The act of POSTing a thing makes the thing come into existence."
+Don't you see?
+You can not create a resource with POST, for it must already exist for you to POST it.
+
+Oh yes, I am getting *that* pedantic. 
+The resource is created entirely by the client, and then a representation is POSTed to the server. 
+The server then (if it suits) stores a resource that was created by the client; 
+you might want to validate it though. 
+This pedantic view is not entirely with out merit, it's all part of trying to maintain separation of concerns.
+
+## Read
+
+Yeah, ok, this does basically map directly to GET.
+The only clarification I feel never hurts to restate is that you are GETting a representation. 
+With and SQL SELECT the data you are pulling out is more or less exactly like it is in the DB. 
+The representation that is sent back to via HTTP could be transformed, or completely synthesised for this request.
+
+## Update
+
+This is where my patience can be really tested. 
+PUT does not modify, it *replaces*. 
+What ever data was originally at the URI is overwritten. 
+Now, yes, you can try to leave it to the client manage this, and hope they can handle what is effectively transactions; 
+the client has to GET the original version (say all 100 lines of it), make a change to one line and finally PUT this new version back.
+Oh sure, that can work, but please, PATCH it.
+
+I've covered this in my last post, PATCH is a perfectly valid method to use. 
+The only (honestly rather trivial) issues is to decide *how* you want the information about the PATCHing to be represented.
+
+## Delete
+
+Yeah, this is just what HTTP DELETE is.
+Wish I could say more, but this detail at least really is that simple.
+
+## BREAD
+
+Not only is it a marvellous substrate for some maple cured ham, sharp extra mature cheddar, tangy onion pickle and crisp fresh lettuce, but it turns out to be a far superior backronyn.
+Bread stands for "Browse, Read, Edit, Add, Delete", and this can map to the HTTP methods much better. 
+
+* Browse -> GET
+* Read -> GET
+* Edit -> PATCH
+* Add -> POST
+* Delete -> Delete
+
+Now, that set of words to form the backronym is from the Wiki page on CRUD, it was added back in 2012, but I can't seem to find where it came from. 
+Personally, I think this can be improved. 
+Really, Browse and Read are the same thing, and map to the same HTTP method. 
