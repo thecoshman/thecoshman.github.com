@@ -11,7 +11,6 @@ comments: true
 From a players point of view, all this update brings is obnoxious text on the screen. 
 There is not much else either to be honest, CI and testing being the only other things of note. 
 I shall cover these more boring topics first. 
-On account of their basically being nothing really any different, from last version, no download for this one.
 
 I've set up [Travis CI](https://travis-ci.org/thecoshman/tag) for automated builds;
 it was fairly simple to set up, the `.travis.yaml` file was mostly standard stuff. 
