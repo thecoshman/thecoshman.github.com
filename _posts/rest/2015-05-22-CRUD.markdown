@@ -115,8 +115,8 @@ As such, I'd propose the following:
 ## Parting Crumbs
 
 So yes, I think it's worthy of a slap when someone starts talking about HTTP methods in comparison to CRUD.
-It's worth of a second one if that discussion is not about how CRUD is not really appropriate when talk about HTTP methods.
+It's worthy of a second one if that discussion is not about how CRUD is not really appropriate when talk about HTTP methods.
 The BREAD acronym is the way forward, as it better matches what you can do with HTTP and how. 
-You might also start to realise I am becoming quite the PATCH atavist, and anti-PUT.
+You might also start to realise I am quite the PATCH atavist, and anti-PUT.
 
 Oh, and if you didn't get the classic TV reference, ['Allo 'Allo](https://www.youtube.com/watch?v=A4I9DMSvJxg).
