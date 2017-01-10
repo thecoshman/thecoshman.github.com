@@ -22,7 +22,7 @@ I'll keep this short.
 I like games; computer games, board games, card games, table top games.
 I enjoy reading, but tend to neglect it, recently enough I've really got into comics too. 
 And of course, I enjoy programming; 
-C++ is problem my strongest language, though for work I use Java so they're about even.
+C++ is probably my strongest language, though for work I use Java so they're about even.
 There's a sprawl of other languages I've played with too.
 
 ## Finding & Contacting Me
