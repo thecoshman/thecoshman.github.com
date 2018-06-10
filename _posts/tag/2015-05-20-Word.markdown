@@ -8,14 +8,14 @@ comments: true
 
 ## A thousandth of a Picture
 
-From a players point of view, all this update brings is obnoxious text on the screen. 
-There is not much else either to be honest, CI and testing being the only other things of note. 
-I shall cover these more boring topics first. 
+From a players point of view, all this update brings is obnoxious text on the screen.
+There is not much else either to be honest, CI and testing being the only other things of note.
+I shall cover these more boring topics first.
 On account of their basically being nothing really any different, from last version, no download for this one.
 
 I've set up [Travis CI](https://travis-ci.org/thecoshman/tag) for automated builds;
-it was fairly simple to set up, the `.travis.yaml` file was mostly standard stuff. 
-Unit testing has also started using Catch. 
+it was fairly simple to set up, the `.travis.yml` file was mostly standard stuff.
+Unit testing has also started using Catch.
 I need to look to ramp up what I am covering with the tests, but I'm using OpenGL, thus require a context, which could make this awkward; that said, I don't see why I couldn't have a window opened up for the purpose of running the tests.
 Definitely something to look into, but I'm not that concerned about it right now.
 
@@ -23,27 +23,27 @@ Definitely something to look into, but I'm not that concerned about it right now
 
 ## Short and Sweet, NEXT!
 
-Really isn't much else to say about what I've done in this version; 
-I've been distracted by other things, so it's taken me a long time to get not much done (like a week to right this).
+Really isn't much else to say about what I've done in this version;
+I've been distracted by other things, so it's taken me a long time to get not much done (like a week to write this).
 The font rendering is handled via a few classes, and most of the actual logic for it was provided by a friend and tweaked to fit my code so far.
-When I need to, I will look to expand this font rendering code to give me more control over where exactly text is drawn, and some 'style' features, but later. 
+When I need to, I will look to expand this font rendering code to give me more control over where exactly text is drawn, and some 'style' features, but later.
 
-On to the next version then. 
-A small list of things stick out in my mind that I want to focus on next. 
+On to the next version then.
+A small list of things stick out in my mind that I want to focus on next.
 Firstly, good lord that FPS is terrible!
-Either I am doing something horribly wrong in calculating it, or I my rendering code is disgustingly bad; 
+Either I am doing something horribly wrong in calculating it, or I my rendering code is disgustingly bad;
 I may not be rocking a beastly GPU, but it's not *that* bad!
-I know that I can look to optimise the render chunks to have less data in them. 
-Considering that when I stand still, they are not (should not) be getting re-generated I'm not sure if that will resolve the issues. 
+I know that I can look to optimise the render chunks to have less data in them.
+Considering that when I stand still, they are not (should not) be getting re-generated I'm not sure if that will resolve the issues.
 I think that it would be of great relief to get a sky box added, it will help to remove the insanity inducing white.
 Gamma correct rendering is another thing to address; shouldn't take too much work I think, but will be nice to have in place.
 
-Finally, one last thing I want to take a look at, and this might be pushed out to V7, is starting to introduce 'smarter' block data. 
+Finally, one last thing I want to take a look at, and this might be pushed out to V7, is starting to introduce 'smarter' block data.
 I'd like to have the list of blocks registered somewhat dynamic, though I might leave it to a later version to come up with some file format to load this data from.
 Some sort of 'block database' is needed, that can allow a unique id to be assigned to each block type, and each type have properties such as 'ignore_gravity', 'solid_ground' etc.
-Along with that, I want to look at introduce per-block instance data. 
-For something like 'ore', it might want to have it as 'per block' how much ore each block has, but it might be better to have distinct types of block, something to play around with. 
-I also like the idea of being able 'combine' blocks, so I can have 'grey stone' and 'iron ore' dynamically combined, layering the two textures together. 
+Along with that, I want to look at introduce per-block instance data.
+For something like 'ore', it might want to have it as 'per block' how much ore each block has, but it might be better to have distinct types of block, something to play around with.
+I also like the idea of being able 'combine' blocks, so I can have 'grey stone' and 'iron ore' dynamically combined, layering the two textures together.
 
 ## Onwards to Version Six
 
