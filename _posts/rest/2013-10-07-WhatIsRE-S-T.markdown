@@ -4,6 +4,7 @@ categories: rest
 title: What is 'RE-S-T'
 is_post: true
 comments: true
+last_edit: 28 July 2018
 ---
 
 ## So What does 'REST' mean?
@@ -79,7 +80,7 @@ As an example, here is what some of these commands *could* look like:
 
 * `user:password put myLocalFileToUpload.log /tmp/myUploadedFile.log` - upload a file
 * `user:password rm /home/user/myShamefullPartyPhoto.png` - remove a file
-* `user:pasword ls /home/user/` - list a directory
+* `user:password ls /home/user/` - list a directory
 
 #### In Short
 
