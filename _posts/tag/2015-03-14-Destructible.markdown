@@ -4,7 +4,7 @@ categories: tag
 title: Destructible
 is_post: true
 comments: true
-last_edit: 8 April 2015
+last_edit: 28 July 2018
 ---
 
 ## Call a Clone a Clone
@@ -16,7 +16,7 @@ Yes I know, Minecraft was not the first of it's kind, but face it, it's *the* ar
 Anyway, I'm not there yet.
 This version does add one of those core features that I would say makes Minecraft what it is;
 You can place and break cubes!
-Again, [here](/downloads/tag/TAGDV3) is a 64bit build for linux, one of these days I'll sort out builds for other platforms, honest!
+Again, [here](/downloads/tag/TAGDV3) is a 64-bit build for linux, one of these days I'll sort out builds for other platforms, honest!
 
 ![Sample of V3](/images/tag/v3/sample.png)
 

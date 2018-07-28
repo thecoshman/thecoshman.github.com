@@ -4,6 +4,7 @@ categories: tag
 title: Quality Graphics
 is_post: true
 comments: true
+last_edit: 28 July 2018
 ---
 
 ## It's all Behind the Curtains
@@ -15,7 +16,7 @@ I think I might also have revealed that I am most certainly not a graphics artis
 As was planned though, this iteration was mostly about updating the code rather than enhancing the gripping game mechanics or deep graphics.
 
 As with last time, [here](/downloads/tag/TAGDV2) is a pre-built version of the game. 
-It is still just a linux 654-bit build.
+It is still just a linux 64-bit build.
 At some stage I might look into building for other platforms with some service or something. 
 
 ![Sample of V2](/images/tag/v2/sample.png)

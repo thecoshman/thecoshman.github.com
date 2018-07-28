@@ -4,6 +4,7 @@ categories: tag
 title: Infinite!
 is_post: true
 comments: true
+last_edit: 28 July 2018
 ---
 
 ## An Infinite World of Insanity
@@ -12,7 +13,7 @@ Given enough RAM you can now explore the terrain until your sanity runs out.
 I really need to sort out some nicer textures though, the three blocks I have 'designed' so far just terrible, truly terrible. 
 But here we are folks, version four of my wee project. 
 As always, I'll offer a build of the game [here](/downloads/tag/TAGDV4); 
-in fine tradition, it is a 64bit build for linux.
+in fine tradition, it is a 64-bit build for linux.
 
 ![Sample of V4](/images/tag/v4/sample.png)
 

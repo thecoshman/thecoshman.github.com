@@ -4,6 +4,7 @@ categories: tag
 title: Version One
 is_post: true
 comments: true
+last_edit: 28 July 2018
 ---
 
 ## Say what you want, it's still a game!
@@ -14,7 +15,7 @@ This is something that you can interact with and have a way of 'winning', you re
 I aimed to just get a game completed, and I did it.
 
 Now, I'm not going to make any promises about weather or not you can run this, but if you want to try it, [here](/downloads/tag/TAGDV1) is a pre-built version of the game. 
-This is built for 64bit linux, Ubuntu specifically. 
+This is built for 64-bit linux, Ubuntu specifically. 
 I don't think you will need anything specific, other than being able to run at least OpenGL 3.3.
 
 ![Sample of V1](/images/tag/v1/sample.png)

@@ -5,6 +5,7 @@ title: CRUD HTTP Mapping
 is_post: true
 comments: true
 published: true
+last_edit: 28 July 2018
 ---
 
 # I Shall Say This Only Once
@@ -90,7 +91,7 @@ Wish I could say more, but this at least really is that simple.
 
 ## BREAD
 
-Not only is it a marvellous substrate for some maple-cured ham, sharp extra mature cheddar, tangy onion pickle and crisp fresh lettuce, but it turns out to be a far superior acronym.
+Not only is it a marvelous substrate for some maple-cured ham, sharp extra mature cheddar, tangy onion pickle and crisp fresh lettuce, but it turns out to be a far superior acronym.
 Bread stands for "Browse, Read, Edit, Add, Delete", and this can map to the HTTP methods much better. 
 
 * Browse -> GET
