@@ -1,0 +1,70 @@
+---
+layout: default
+categories: tag
+title: SkyBox
+is_post: true
+comments: true
+---
+
+## Abandonware?
+
+It's been quite some time since I last published an updated for this project.
+I never fully stopped looking at or thinking about it though, life just got in the way and interest waned a bit.
+Version 6 has actually been mostly ready to 'release' for quite some time, I just kept putting of writing this article;
+in fact, I am fairly sure I did actually write this at least once and then loose track of it.
+
+Still, it's here now.
+The shiny new version, with gamma correct rendering, a thrilling sky box and less terrible FPS!
+
+![Sample of V6](/images/tag/v6/sample.png)
+
+## What is Frame Rate?
+
+I'm still not satisfied with the FPS I'm getting, but I have found that running the release build helps a huge amount.
+Considering the rendering is so simple at the moment, I would have thought this would be much higher.
+There are some things that could help, one of the ideas I have is re-work the way the chunks are rendered.
+I'm thinking I might look to cache the entire chunk as a single object to render.
+One of thing that I think holds this back is the lack of texture atlas - so that's one thing to add onto the 'todo list' for the next version.
+
+## Crude Sky Box
+
+As is the theme with my development for this project, I did a pretty bare minimum for the sky box.
+It's just a basic static cube that invites a certain sense of dread.
+Down the line, I will certainly want to come back to make this more interesting looking, especially if I get a day/night cycle going and animated textures.
+For now though, I think it suffices;
+at the least the unsettling infinite white is gone.
+
+## Gamma Rays, Man
+
+I am fairly sure I got this implemented correctly.
+I'll probably have to come back at some stage to fix this up, really looking forward to that.
+There's not really much to see with though, but should make things look better for all;
+when things get that far.
+
+## Blocks on Blocks
+
+I started working on setting up a block registry for this, but then the great silence fell onto this project.
+For now, I'll wrap up where I got with it so that I can push out a new version.
+In the next version, I want to also work on establishing a texture atlas and that will work nicely with a block registry.
+
+## ETA 2025
+
+There's two key things I want to get done as part of the next version.
+Well, three if you want to count 'publish it before the year is out'.
+
+### Texture Atlas
+
+I want to be loading all the textures for the blocks into a single large texture.
+The use of a texture atlas should help simplify and speed up the rendering code;
+I would not have check on every block if the texture needs to be swap, as it never would (per block).
+Not _every_ texture would be thrown into a single texture atlas though.
+For example, the green, red and white block textures I currently have would be thrown into this one atlas whilst the skybox would be stored in it's own texture object.
+This means each frame would only require two calls to set textures, one to set the blocks texture atlas, one to set the sky boxes texture.
+
+### Block Registry
+
+This will allow me to start to store all the properties for blocks in a more ordered fashion.
+Obviously one of the main things would be working with the texture atlas to know what texture co-ordinates to use to draw the texture you want.
+This can then be used when building the 'render chunks', these could become single large models, combining all the visible cube surfaces together.
+I expect this too will also help improve the frame rate.
+
