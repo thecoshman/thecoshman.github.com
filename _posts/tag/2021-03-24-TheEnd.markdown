@@ -1,0 +1,122 @@
+---
+layout: default
+categories: tag
+title: TheEnd
+is_post: true
+comments: true
+---
+
+## The End!
+
+Yeah, I did it, it's a click bait title.
+But let's not get ahead of ourselves;
+am I perhaps teasing too much?
+Any way, V7 really doesn't offer much from a player's point of view besides, perhaps, a slightly better FPS.
+There's two main things I've managed to implement this time, funnily enough, the two mains things I planned.
+We now have a texture atlas and meshes per chunk, for efficient rendering!
+Combined, this seems to have restored a reasonable frame rate for me.
+Contrary to my usual, I'm not going to bother uploading a copy - is it really worth it?
+
+![Sample of V7](/images/tag/v7/sample.png)
+
+## Texture Atlas
+
+A texture atlas is a method/technique where you combine multiple smaller textures into a single larger one, thus helping reduce the amount of times you need to swap it.
+Commonly these would be pre-built along with some sort of configuration data saying what parts of the atlas are what.
+I know that I want to make it easy to 'just add' new textures, or to possibly swap the textures that are used, I therefore wanted a way to dynamically build the atlas.
+
+Whilst I'm sure there are better solutions out there, I went with putting each texture into a grid cell in the atlas.
+Down the line I'm sure there's better ways to build this, but still, here's roughly the steps I take to build the texture atlas:
+
+1. Load each individual texture into memory (not to the GPU though)
+2. Determine the size of the largest texture, as a 'smallest power of two', this will be how big each cell needs to be
+  + This is done dynamically, even though my textures are all 16x16
+  + If I had a texture that was 20px wide, I'd calculate each atlas grid cell would need to be 32px
+3. Work out how large a grid of textures I would need
+  + As I have three textures, I would need a grid that is 2x2 cells
+  + This again this is done as a 'smallest power of two'; with five textures, it'd be a 4x4 grid that is used
+
+    At this stage, I know the smallest 'power of two' sized image that can fit every texture, and how many grid cells my atlas needs to have.
+That means I can create an OpenGL texture buffer that is large enough for all my textures and is a power of two size.
+
+4. I can now 'blit' each individual texture into the larger atlas texture, tracking what cell the texture is being put
+  + This allows me to return the UV coordinates for a given texture within the atlas later on
+  + And this is where the 'block registry' fits in too, by they way
+
+As you can tell, I'm making a few presumptions here.
+Chiefly, that the textures are all the same square size.
+As my textures are all 16x16, my solution currently works fine with these presumptions.
+However, if I had some textures that were 32x32, I could actually fit four 16x16 textures into one grid cell, but my crude solution would make those four smaller textures consume a larger 32x32 cell each.
+Whilst not space efficient, my solution would at least handle this.
+Packing the atlas more efficiently is something I will worry about later;
+it's hardly an issue when I only have three textures.
+Another presumption I'm making is that 'power of two' sized textures are indeed something to aim for - some further research is in order I think here.
+
+It's also obvious that doing this atlas build every time the game is run is less than ideal.
+Later I could look to add a way to save the atlas so that you don't have to wait for each time you start the game.
+As long as I can determine if the input textures are the same, I should be able to simple load a pre build texture atlas.
+
+## Chunk Meshing
+
+Previously, my chunk rendering was a rather 'brute force' afair, drawing each block one by one.
+There was a minor optimisation, I would create a 'display chunk' that would work out, and cache, for each block in the data chunk, is it something to render (ie, not air), and is it possible to be rendered (not surround on all six sides by blocks that can't be seen through).
+This did help a little bit, but still allows for potentially thousands of individual draw calls, each one needing to swap the texture;
+though, during development of this version the atlas was used once made by updating the shader uniforms to use for this block.
+A solution here then, is to build a single buffer object for the entire chunk so that it can be drawn in a single draw call.
+
+As I already had the logic in place that that checks each block to see if it should be drawn, I retained that;
+a minor reduction in the amount of data in the mesh perhaps, but why not take that?
+For each block then, I determine what the vertex coordinates within the chunk are, what the texture coordinates (from the atlas) this block needs and finally the indexes that would draw this block.
+This produces three temporary `std::vector`s, which I can combine into three large ones as I build the chunk mesh and then buffer into OpenGL.
+And like that, I got nearly significant increase in frame rate.
+
+Some minor things I could look at improving in the future is further culling faces that could never be seen.
+Two blocks that are touching would share a common face that could never be seen, thus never need to be added to the mesh.
+With a bit more work, I could allow the display chunk building logic to check blocks in neighbouring chunks to detect even more blocks that never be seen.
+A slightly more in-depth thing to investigate is how I shift memory around as this data is built, it's rather simplistic at the moment.
+
+## Dealing with Cut Corners
+
+When I first implemented the procedural generation for the world, I had an issue that resulted in chunks going up/down in the y axis being duplicated.
+To get around this, I simple generate those as empty chunks (just 16x16x16 air blocks), and 'hacked' the physics to stop you falling below y=0.
+These two hacks were put in place in the interest of moving forward with what I wanted to focus on at the time, but I felt now was a good time to revisit this.
+
+Indeed the solution to my world generation issue was fairly simple to fix.
+I think that stands as a good example of not getting to hung up on issues you can safely move on from for now.
+However, this now meant that world generation was more intensive, you feel a big lag spike every time you move such that new terrain needs to be generated;
+not to mention starting the game.
+
+The problem now, single threaded code.
+
+## And so to Frustration
+
+When the game first loads and wants to display that first frame, it needs to generate the world as 'data chunks' and from those 'display chunks'.
+Setting the chunk range to even a fairly small number, like two, can result in a large number of chunks being required, in this example 125.
+A chunk render distance of five is where you start to get a nice view distance, and that's now 1331 chunks that need to be made ready.
+Even if it only takes about 10ms per chunk, that's 13 seconds where the game is locked up not responding at all.
+As you move around, and cause new chunks to need to be generated, you get noticeable lag spikes whilst the game works on generating new data.
+This is so badly handled that when the game loads, you get the OS reporting that the application is not responding to user input and asking if it should be terminated!
+
+In theory, C++ offers a solution to handle this, in practice... I'm giving up with C++.
+The `std::future`, despite having been around for a few versions of the standard now, still doesn't have a proper way to test if it is ready (yes, I know there's solutions).
+This, along with much discussion amongst friends was one of many an issue, and the prevailing advice on how to use `std::future` and other such classes was... "don't".
+
+So, it's time to get back into Rust;
+at least, I'm fairly sure that's what I'll use - already started to refresh myself with it anyway.
+Many a winter ago, back when Rust was in it's early days, I did start looking into it, and I did quite enjoy it.
+However, skill rot being what it is, I'm coming back at it now fairly fresh faced, not to mention how much more it has improved over the years.
+
+## The Big Rewrite
+
+So there we have it, after seven versions developed in C++ over a span of five years (five, _very_ lazy years) I'm going to basically rewrite everything from scratch.
+As I said, I believe I'll take this on now in Rust, but Kotlin _is_ tempting me;
+I'm perhaps more familiar with Kotlin, and the JVM does offer me, potentially, an easy way to brining in dynamic logic (for mods).
+
+Feature wise, I don't think I'll have anything different in the new version - other than having the chunk generation handled asynchronously.
+As you move around, whilst you might only have a range of five chunks rendered to you, the engine will attempt to generate chunks up to a range of perhaps ten blocks.
+This forces the engine to generate more chunks than you need to render, but it means as you explore the world, they can be generated ready for you to display.
+I could perhaps do similar for generating the display chunks, this could help reduce a minor delay of them popping into view.
+
+Along with this rewrite into version eight, I might (don't hold me to it) look to start towards a client-server model.
+Introducing multi-player is something I would want to tackle sooner rather than later, just looking at the substantial tweaks I had to do to start to attempt to get just chunk generation asynchronous was bad enough.
+And whilst I'm throwing ideas out there, why not perhaps start looking at some way of having parameters/properties, removing some of the hard coded values.
